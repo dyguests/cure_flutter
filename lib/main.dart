@@ -1,3 +1,4 @@
+import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(new App());
@@ -5,12 +6,22 @@ void main() => runApp(new App());
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final wordPair = WordPair.random();
     return new MaterialApp(
       title: 'Cure Flutter',
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new MainPage(title: 'Flutter Demo Home Page'),
+//      home: new MainPage(title: 'Flutter Demo Home Page'),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Welcome to Flutter'),
+        ),
+        body: Center(
+//          child: Text('Hello World'),
+          child: Text(wordPair.asPascalCase),
+        ),
+      ),
     );
   }
 }
