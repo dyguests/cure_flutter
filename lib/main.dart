@@ -18,8 +18,8 @@ class App extends StatelessWidget {
           title: Text('Welcome to Flutter'),
         ),
         body: Center(
-//          child: Text('Hello World'),
-          child: Text(wordPair.asPascalCase),
+          //child: Text(wordPair.asPascalCase), // Change the highlighted text to...
+          child: RandomWords(), // ... this highlighted text
         ),
       ),
     );
@@ -107,5 +107,20 @@ class _MyHomePageState extends State<MainPage> {
         child: new Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+}
+
+class RandomWords extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return RandomWordsState();
+  }
+}
+
+class RandomWordsState extends State<RandomWords> {
+  @override
+  Widget build(BuildContext context) {
+    final wordPair = WordPair.random();
+    return Text(wordPair.asPascalCase);
   }
 }
