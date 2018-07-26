@@ -25,11 +25,16 @@ class MainPageState extends State<MainPage> {
       itemBuilder: (context, i) {
         return _buildRow(_populars[i]);
       },
+      itemCount: _populars.length,
     );
   }
 
   /// 创建每一项
-  Widget _buildRow(Photo photo) {}
+  Widget _buildRow(Photo photo) {
+    return ListTile(
+      title: Text("Test title"),
+    );
+  }
 }
 
 class Wrap<T> {
