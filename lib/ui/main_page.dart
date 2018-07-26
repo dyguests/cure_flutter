@@ -32,6 +32,10 @@ class MainPageState extends State<MainPage> {
   Widget _buildRow(Photo photo) {}
 }
 
+class Wrap<T> {
+  T t;
+}
+
 class Photo {
 /*  {
   photo: {
