@@ -1,4 +1,5 @@
 import 'package:cure/io/rest/photo_service.dart';
+import 'package:cure/model/photo.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -11,9 +12,7 @@ class MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    PhotoService.fetchPost().then((response) {
-      var i = 1;
-    });
+    refreshData();
 
     return Scaffold(
       appBar: AppBar(
@@ -22,6 +21,14 @@ class MainPageState extends State<MainPage> {
       ),
       body: _buildBody(),
     );
+  }
+
+  void refreshData() {
+    PhotoService.getPhotos().then((list) {
+      setState(() {
+        _populars.addAll(list);
+      });
+    });
   }
 
   Widget _buildBody() {
@@ -40,34 +47,4 @@ class MainPageState extends State<MainPage> {
       title: Text("Test title"),
     );
   }
-}
-
-class Wrap<T> {
-  T t;
-}
-
-class Photo {
-/*  {
-  photo: {
-  id: 6551257,
-  url: "/photo/6551257",
-  subject: "双黒",
-  sq150_url: "https://wc-ahba9see.c.sakurastorage.jp/469922/rjprqluawpxfuotgrjxldhmathkvhedofjwgnvoe-350x600.jpg",
-  sq300_url: "https://wc-ahba9see.c.sakurastorage.jp/469922/rjprqluawpxfuotgrjxldhmathkvhedofjwgnvoe-350x600.jpg",
-  does_like: false,
-  liked: false,
-  is_owner: false,
-  viewable: true
-  }
-  }*/
-
-  final int id;
-  final String url;
-  final String subject;
-  final String sq150_url;
-  final String sq300_url;
-  final bool does_like;
-  final bool liked;
-  final bool is_owner;
-  final bool viewable;
 }
