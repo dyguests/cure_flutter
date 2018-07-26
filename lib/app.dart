@@ -1,4 +1,4 @@
-import 'package:cure/ui/random_words.dart';
+import 'package:cure/ui/main_page.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -9,7 +9,7 @@ class App extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: RandomWords(),
+      home: MainPage(),
     );
   }
 }

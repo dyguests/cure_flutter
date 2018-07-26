@@ -1,6 +1,7 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 
+@Deprecated("这个是测试用的")
 class RandomWords extends StatefulWidget {
   @override
   createState() => RandomWordsState();

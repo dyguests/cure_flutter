@@ -1,3 +1,4 @@
+import 'package:cure/io/rest/photo_service.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -10,6 +11,10 @@ class MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    PhotoService.fetchPost().then((response) {
+      var i = 1;
+    });
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Cure'),
