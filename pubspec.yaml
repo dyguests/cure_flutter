@@ -10,6 +10,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   english_words: ^3.1.0
   http: ^0.11.3+16
+  jaguar_http: 0.0.2+1
 
 dev_dependencies:
   flutter_test:
