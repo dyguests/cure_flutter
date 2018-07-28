@@ -1,6 +1,5 @@
 import 'package:cure/io/rest/photo_service.dart';
 import 'package:cure/model/photo.dart';
-import 'package:cure/widget/widget.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -49,25 +48,28 @@ class MainPageState extends State<MainPage> {
 
   /// 创建每一项
   Widget _buildItem(Photo photo) {
-    return Card(
-      key: null,
-      child: Stack(
-        children: <Widget>[
-          Positioned.fill(
-            child: Image.network(
-              photo.sq150_url,
-              fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {},
+      child: Card(
+        key: null,
+        child: Stack(
+          children: <Widget>[
+            Positioned.fill(
+              child: Image.network(
+                photo.sq150_url,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          Positioned(
-            bottom: 8.0,
-            left: 8.0,
-            child: Text(
-              photo.subject,
-              style: new TextStyle(fontSize: 12.0, color: const Color(0xFFFFFFFF), fontWeight: FontWeight.w200, fontFamily: "Roboto"),
+            Positioned(
+              bottom: 8.0,
+              left: 8.0,
+              child: Text(
+                photo.subject,
+                style: new TextStyle(fontSize: 12.0, color: const Color(0xFFFFFFFF), fontWeight: FontWeight.w200, fontFamily: "Roboto"),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
