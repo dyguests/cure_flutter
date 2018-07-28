@@ -1,5 +1,6 @@
 import 'package:cure/io/rest/photo_service.dart';
 import 'package:cure/model/photo.dart';
+import 'package:cure/widget/widget.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
