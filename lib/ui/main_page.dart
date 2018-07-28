@@ -1,4 +1,4 @@
-import 'package:cure/io/rest/dio_client.dart';
+import 'package:cure/io/dio/dio_client.dart';
 import 'package:cure/model/photo.dart';
 import 'package:cure/ui/photo_page.dart';
 import 'package:flutter/material.dart';

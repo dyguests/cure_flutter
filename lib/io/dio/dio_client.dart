@@ -1,5 +1,5 @@
 import 'package:cure/common/dart.dart';
-import 'package:cure/io/rest/service/services.dart';
+import 'package:cure/io/dio/service/services.dart';
 import 'package:dio/dio.dart';
 
 class DioClient {

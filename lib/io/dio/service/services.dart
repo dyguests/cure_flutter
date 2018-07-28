@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:cure/model/photo.dart';
 import 'package:dio/dio.dart';
-//import 'package:dio';
 
 class BaseService {
   Dio dio;
