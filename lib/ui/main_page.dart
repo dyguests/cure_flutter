@@ -50,9 +50,23 @@ class MainPageState extends State<MainPage> {
   Widget _buildItem(Photo photo) {
     return Card(
       key: null,
-      child: new Image.network(
-        photo.sq150_url,
-        fit: BoxFit.cover,
+      child: Stack(
+        children: <Widget>[
+          Positioned.fill(
+            child: Image.network(
+              photo.sq150_url,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Positioned(
+            bottom: 8.0,
+            left: 8.0,
+            child: Text(
+              photo.subject,
+              style: new TextStyle(fontSize: 12.0, color: const Color(0xFFFFFFFF), fontWeight: FontWeight.w200, fontFamily: "Roboto"),
+            ),
+          ),
+        ],
       ),
     );
   }
