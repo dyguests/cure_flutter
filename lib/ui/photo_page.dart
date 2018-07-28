@@ -1,21 +1,25 @@
-import 'package:cure/model/photo.dart';
 import 'package:flutter/material.dart';
+import 'package:photo_view/photo_view.dart';
 
 /// 图片详情页
 class PhotoPage extends StatefulWidget {
-  PhotoPage(this.photo) : assert(photo != null);
-
   final Photo photo;
+
+  PhotoPage(this.photo) : assert(photo != null);
 
   static void launch(BuildContext context, Photo photo) {
     Navigator.of(context).push(MaterialPageRoute(builder: (context) => PhotoPage(photo)));
   }
 
   @override
-  createState() => PhotoPageState();
+  createState() => PhotoPageState(photo);
 }
 
 class PhotoPageState extends State<PhotoPage> {
+  final Photo photo;
+
+  PhotoPageState(this.photo);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,8 +32,12 @@ class PhotoPageState extends State<PhotoPage> {
   }
 
   Widget _buildBody() {
-    return Center(
-      child: Text("test"),
+    return Container(
+      child: PhotoView(
+        imageProvider: new NetworkImage('https://wc-ahba9see.c.sakurastorage.jp/179162/qbdrujivtvpqdpcpeoumcqmtaipbnexphcvzmhzh-3000.jpg'),
+        minScale: 0.25,
+        maxScale: 4.0,
+      ),
     );
   }
 }
