@@ -22,6 +22,8 @@ class Photo {
   final bool liked;
   final bool is_owner;
   final bool viewable;
+
+  Photo({this.id, this.url, this.subject, this.sq150_url, this.sq300_url, this.does_like, this.liked, this.is_owner, this.viewable});
 }
 
 class PhotoWrap {
