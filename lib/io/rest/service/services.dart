@@ -1,10 +1,7 @@
 import 'dart:async';
-import 'dart:convert';
 
-import 'package:cure/common/dart.dart';
 import 'package:cure/model/photo.dart';
 import 'package:dio/dio.dart';
-import 'package:http/http.dart' as http;
 //import 'package:dio';
 
 class BaseService {
@@ -17,7 +14,7 @@ class PhotoService extends BaseService {
   PhotoService(Dio dio) : super(dio);
 
   Future<List<Photo>> getPhotos() async {
-    Response future = await dio.get(
+    var response = await dio.get(
       '/api/photo/popular.json',
       data: {
         'limit': 16,
@@ -26,13 +23,8 @@ class PhotoService extends BaseService {
         'photo_context': 'popular_feed',
       },
     );
-    var response = await http.get(Constant.baseUrl + '/api/photo/popular.json?limit=16&p3_photo_list=true&page=1&photo_context=popular_feed');
-    var responseBody = json.decode(response.body);
-//    var map2 = map["list"][0];
-//    List<PhotoWrap> listWrap = map["list"];
-//    var list = listWrap.map((photoWrap) => photoWrap.photo);
-
-    var _list = responseBody["list"] as List;
+    var data = response.data;
+    var _list = data['list'];
 
     var list = List<Photo>();
     _list.forEach((item) {

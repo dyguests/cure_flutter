@@ -14,11 +14,11 @@ class MainPageState extends State<MainPage> {
   @override
   void initState() {
     super.initState();
-    refreshData();
   }
 
   @override
   Widget build(BuildContext context) {
+    refreshData();
     return Scaffold(
       appBar: AppBar(
         title: Text('Cure'),
