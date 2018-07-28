@@ -14,9 +14,22 @@ class PhotoService {
 //    var list = listWrap.map((photoWrap) => photoWrap.photo);
 
     var _list = responseBody["list"] as List;
-    var list = _list.map((item) {
+
+    var list = List<Photo>();
+    _list.forEach((item) {
       var _item = item["photo"];
-      return Photo(id: _item["id"]);
+      var photo = Photo(
+        id: _item["id"],
+        url: _item["url"],
+        subject: _item["subject"],
+        sq150_url: _item["sq150_url"],
+        sq300_url: _item["sq300_url"],
+        does_like: _item["does_like"],
+        liked: _item["liked"],
+        is_owner: _item["is_owner"],
+        viewable: _item["viewable"],
+      );
+      list.add(photo);
     });
 
     return list;
