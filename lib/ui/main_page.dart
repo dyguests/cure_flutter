@@ -36,10 +36,11 @@ class MainPageState extends State<MainPage> {
   }
 
   Widget _buildBody() {
-    return ListView.builder(
-      padding: const EdgeInsets.all(4.0),
-      itemBuilder: (context, i) {
-        return _buildRow(_populars[i]);
+    return GridView.builder(
+      padding: EdgeInsets.all(4.0),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+      itemBuilder: (context, index) {
+        return _buildRow(_populars[index]);
       },
       itemCount: _populars.length,
     );
@@ -47,8 +48,12 @@ class MainPageState extends State<MainPage> {
 
   /// 创建每一项
   Widget _buildRow(Photo photo) {
-    return ListTile(
-      title: Text("Test title3"),
+    return Card(
+      key: null,
+      child: new Image.network(
+        photo.sq150_url,
+        fit: BoxFit.cover,
+      ),
     );
   }
 }
