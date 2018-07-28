@@ -35,7 +35,7 @@ class PhotoPageState extends State<PhotoPage> {
   Widget _buildBody() {
     return Container(
       child: PhotoView(
-        imageProvider: new NetworkImage('https://wc-ahba9see.c.sakurastorage.jp/179162/qbdrujivtvpqdpcpeoumcqmtaipbnexphcvzmhzh-3000.jpg'),
+        imageProvider: new NetworkImage(photo.large_url),
         minScale: 0.25,
         maxScale: 4.0,
       ),
