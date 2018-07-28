@@ -28,4 +28,6 @@ class Photo {
 
 class PhotoWrap {
   final Photo photo;
+
+  PhotoWrap({this.photo});
 }

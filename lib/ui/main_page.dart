@@ -40,14 +40,14 @@ class MainPageState extends State<MainPage> {
       padding: EdgeInsets.all(4.0),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
       itemBuilder: (context, index) {
-        return _buildRow(_populars[index]);
+        return _buildItem(_populars[index]);
       },
       itemCount: _populars.length,
     );
   }
 
   /// 创建每一项
-  Widget _buildRow(Photo photo) {
+  Widget _buildItem(Photo photo) {
     return Card(
       key: null,
       child: new Image.network(
