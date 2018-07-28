@@ -11,9 +11,13 @@ class MainPageState extends State<MainPage> {
   final _populars = <Photo>[];
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
     refreshData();
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Cure'),
@@ -44,7 +48,7 @@ class MainPageState extends State<MainPage> {
   /// 创建每一项
   Widget _buildRow(Photo photo) {
     return ListTile(
-      title: Text("Test title"),
+      title: Text("Test title3"),
     );
   }
 }
