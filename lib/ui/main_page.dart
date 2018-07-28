@@ -1,4 +1,4 @@
-import 'package:cure/io/rest/photo_service.dart';
+import 'package:cure/io/rest/dio_client.dart';
 import 'package:cure/model/photo.dart';
 import 'package:cure/ui/photo_page.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +29,7 @@ class MainPageState extends State<MainPage> {
   }
 
   void refreshData() {
-    PhotoService.getPhotos().then((list) {
+    DioClient.getInstance().photoService.getPhotos().then((list) {
       setState(() {
         _populars.addAll(list);
       });
