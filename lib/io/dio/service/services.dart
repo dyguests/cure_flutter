@@ -44,6 +44,4 @@ class PhotoService extends BaseService {
 
     return list;
   }
-
-  void a() {}
 }
