@@ -4,11 +4,7 @@ import 'package:flutter/material.dart';
 /// 图片详情页
 class PhotoPage extends StatefulWidget {
   static void launch(BuildContext context, Photo photo) {
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (context){
-
-      })
-    );
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => PhotoPage()));
   }
 
   @override
