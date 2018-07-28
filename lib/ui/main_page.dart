@@ -48,6 +48,17 @@ class MainPageState extends State<MainPage> {
 
   /// 创建每一项
   Widget _buildItem(BuildContext context, Photo photo) {
+    var inkWell = Positioned.fill(
+        child: new Material(
+            color: Colors.transparent,
+            child: new InkWell(
+//              splashColor: Colors.lightGreenAccent,
+              onTap: () {
+                Scaffold.of(context).showSnackBar(new SnackBar(
+                      content: new Text(photo.subject),
+                    ));
+              },
+            )));
     var stack = Stack(
       children: <Widget>[
         Positioned.fill(
@@ -64,18 +75,12 @@ class MainPageState extends State<MainPage> {
             style: new TextStyle(fontSize: 12.0, color: const Color(0xFFFFFFFF), fontWeight: FontWeight.w200, fontFamily: "Roboto"),
           ),
         ),
+        inkWell,
       ],
     );
     return Card(
       key: null,
-      child: InkWell(
-        onTap: () {
-          Scaffold.of(context).showSnackBar(new SnackBar(
-                content: new Text(photo.subject),
-              ));
-        },
-        child: stack,
-      ),
+      child: stack,
     );
   }
 }

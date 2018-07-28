@@ -4,7 +4,7 @@ A new Flutter project for Cure WorldCosplay.
 
 [worldcosplay](https://worldcosplay.net/)
 
-<img src="./graphics/Screenshot_1532770505.png" width="40%"/>
+<img src="./graphics/Screenshot_1532770505.jpg" width="40%"/>
 
 ## Getting Started
 
