@@ -40,36 +40,41 @@ class MainPageState extends State<MainPage> {
       padding: EdgeInsets.all(4.0),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
       itemBuilder: (context, index) {
-        return _buildItem(_populars[index]);
+        return _buildItem(context, _populars[index]);
       },
       itemCount: _populars.length,
     );
   }
 
   /// 创建每一项
-  Widget _buildItem(Photo photo) {
-    return GestureDetector(
-      onTap: () {},
-      child: Card(
-        key: null,
-        child: Stack(
-          children: <Widget>[
-            Positioned.fill(
-              child: Image.network(
-                photo.sq150_url,
-                fit: BoxFit.cover,
-              ),
-            ),
-            Positioned(
-              bottom: 8.0,
-              left: 8.0,
-              child: Text(
-                photo.subject,
-                style: new TextStyle(fontSize: 12.0, color: const Color(0xFFFFFFFF), fontWeight: FontWeight.w200, fontFamily: "Roboto"),
-              ),
-            ),
-          ],
+  Widget _buildItem(BuildContext context, Photo photo) {
+    var stack = Stack(
+      children: <Widget>[
+        Positioned.fill(
+          child: Image.network(
+            photo.sq150_url,
+            fit: BoxFit.cover,
+          ),
         ),
+        Positioned(
+          bottom: 8.0,
+          left: 8.0,
+          child: Text(
+            photo.subject,
+            style: new TextStyle(fontSize: 12.0, color: const Color(0xFFFFFFFF), fontWeight: FontWeight.w200, fontFamily: "Roboto"),
+          ),
+        ),
+      ],
+    );
+    return Card(
+      key: null,
+      child: InkWell(
+        onTap: () {
+          Scaffold.of(context).showSnackBar(new SnackBar(
+                content: new Text(photo.subject),
+              ));
+        },
+        child: stack,
       ),
     );
   }
