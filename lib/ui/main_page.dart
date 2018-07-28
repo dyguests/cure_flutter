@@ -48,39 +48,37 @@ class MainPageState extends State<MainPage> {
 
   /// 创建每一项
   Widget _buildItem(BuildContext context, Photo photo) {
-    var inkWell = Positioned.fill(
-        child: new Material(
-            color: Colors.transparent,
-            child: new InkWell(
-//              splashColor: Colors.lightGreenAccent,
-              onTap: () {
-                Scaffold.of(context).showSnackBar(new SnackBar(
-                      content: new Text(photo.subject),
-                    ));
-              },
-            )));
-    var stack = Stack(
-      children: <Widget>[
-        Positioned.fill(
-          child: Image.network(
-            photo.sq150_url,
-            fit: BoxFit.cover,
-          ),
-        ),
-        Positioned(
-          bottom: 8.0,
-          left: 8.0,
-          child: Text(
-            photo.subject,
-            style: new TextStyle(fontSize: 12.0, color: const Color(0xFFFFFFFF), fontWeight: FontWeight.w200, fontFamily: "Roboto"),
-          ),
-        ),
-        inkWell,
-      ],
-    );
     return Card(
       key: null,
-      child: stack,
+      child: Stack(
+        children: <Widget>[
+          Positioned.fill(
+            child: Image.network(
+              photo.sq150_url,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Positioned(
+            bottom: 8.0,
+            left: 8.0,
+            child: Text(
+              photo.subject,
+              style: new TextStyle(fontSize: 12.0, color: const Color(0xFFFFFFFF), fontWeight: FontWeight.w200, fontFamily: "Roboto"),
+            ),
+          ),
+          Positioned.fill(
+              child: new Material(
+                  color: Colors.transparent,
+                  child: new InkWell(
+//              splashColor: Colors.lightGreenAccent,
+                    onTap: () {
+                      Scaffold.of(context).showSnackBar(new SnackBar(
+                            content: new Text(photo.subject),
+                          ));
+                    },
+                  ))),
+        ],
+      ),
     );
   }
 }
