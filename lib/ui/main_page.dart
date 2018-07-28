@@ -1,5 +1,6 @@
 import 'package:cure/io/rest/photo_service.dart';
 import 'package:cure/model/photo.dart';
+import 'package:cure/ui/photo_page.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -72,9 +73,7 @@ class MainPageState extends State<MainPage> {
                   child: new InkWell(
 //              splashColor: Colors.lightGreenAccent,
                     onTap: () {
-                      Scaffold.of(context).showSnackBar(new SnackBar(
-                            content: new Text(photo.subject),
-                          ));
+                      PhotoPage.launch(context, photo);
                     },
                   ))),
         ],
