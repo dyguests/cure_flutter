@@ -3,7 +3,13 @@ import 'package:flutter/material.dart';
 
 /// 图片详情页
 class PhotoPage extends StatefulWidget {
-  static void launch(BuildContext context, Photo photo) {}
+  static void launch(BuildContext context, Photo photo) {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context){
+
+      })
+    );
+  }
 
   @override
   createState() => PhotoPageState();
