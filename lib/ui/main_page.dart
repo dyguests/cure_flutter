@@ -102,6 +102,8 @@ class MainPageState extends State<MainPage> {
 
         _populars.addAll(list);
       });
+    }).catchError((e) {
+      _isLoading = false;
     });
   }
 }
