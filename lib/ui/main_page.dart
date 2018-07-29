@@ -9,16 +9,26 @@ class MainPage extends StatefulWidget {
 }
 
 class MainPageState extends State<MainPage> {
+  final _scrollController = ScrollController();
+
   final _populars = <Photo>[];
+
+  int page = 1;
+  bool _isLoading = false;
 
   @override
   void initState() {
     super.initState();
+    _scrollController.addListener(() {
+      if (_scrollController.position.maxScrollExtent == _scrollController.offset) {
+        _loadMore(loadMore: true);
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    refreshData();
+    _refreshData();
     return Scaffold(
       appBar: AppBar(
         title: Text('Cure'),
@@ -28,16 +38,13 @@ class MainPageState extends State<MainPage> {
     );
   }
 
-  void refreshData() {
-    DioClient.getInstance().photoService.getPhotos().then((list) {
-      setState(() {
-        _populars.addAll(list);
-      });
-    });
+  void _refreshData() {
+    _loadMore();
   }
 
   Widget _buildBody() {
     return GridView.builder(
+      controller: _scrollController,
       padding: EdgeInsets.all(4.0),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
       itemBuilder: (context, index) {
@@ -79,5 +86,22 @@ class MainPageState extends State<MainPage> {
         ],
       ),
     );
+  }
+
+  void _loadMore({bool loadMore: false}) {
+    if (_isLoading) {
+      return;
+    }
+
+    _isLoading = true;
+
+    DioClient.getInstance().photoService.getPhotos(page).then((list) {
+      setState(() {
+        page++;
+        _isLoading = false;
+
+        _populars.addAll(list);
+      });
+    });
   }
 }

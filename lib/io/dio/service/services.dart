@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cure/common/dart.dart';
 import 'package:cure/model/photo.dart';
 import 'package:dio/dio.dart';
 
@@ -12,13 +13,13 @@ class BaseService {
 class PhotoService extends BaseService {
   PhotoService(Dio dio) : super(dio);
 
-  Future<List<Photo>> getPhotos() async {
+  Future<List<Photo>> getPhotos(int page) async {
     var response = await dio.get(
       '/api/photo/popular.json',
       data: {
-        'limit': 16,
+        'page': page,
+        'limit': Constant.pageSize,
 //        'p3_photo_list': true,
-        'page': 1,
 //        'photo_context': 'popular_feed',
       },
     );
